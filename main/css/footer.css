@@ -1,0 +1,110 @@
+/* =========================================
+   FOOTER.CSS - Стилі для підвалу сайту
+   ========================================= */
+
+   .footer {
+    position: relative;
+    padding: 50px 20px;
+    background-color: #150717;
+    border-top: 2px solid #3a0e3c;
+    overflow: hidden;
+}
+
+.footer-container {
+    /* Робимо контейнер вужчим, щоб текст не розлітався по краях */
+    max-width: 1000px; 
+    margin: 0 auto;
+    display: flex;
+    /* Посуваємо все вліво і вирівнюємо по нижньому краю логотипу */
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 80px; /* Відступ між логотипом і текстом */
+    position: relative;
+    z-index: 2;
+}
+
+.footer-logo img {
+    height: 50px;
+    object-fit: contain;
+}
+
+.footer-info {
+    font-size: 12px;
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+.footer-info strong {
+    color: #ffffff;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-contacts {
+    display: flex;
+    gap: 40px;
+    margin-top: 15px;
+}
+
+.footer-arch-img {
+    position: absolute;
+    right: 50px;
+    bottom: 0;
+    height: 90px;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+/* --- ОНОВЛЕНІ КОНТАКТИ У ФУТЕРІ --- */
+.footer-contacts {
+    display: flex;
+    gap: 40px;
+    margin-top: 15px;
+}
+
+.author-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.author-block p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Стилі для соціальних мереж */
+.social-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05); /* Легкий фон */
+    border: 1px solid rgba(255, 0, 160, 0.3); /* Рожева рамка */
+    color: #e0b0e0; /* Світло-рожевий колір іконок */
+    transition: all 0.3s ease;
+}
+
+/* Іконки всередині */
+.social-links svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Ефект при наведенні */
+.social-links a:hover {
+    background-color: var(--accent-pink, #ff00a0); /* Рожевий фон */
+    border-color: var(--accent-pink, #ff00a0);
+    color: #fff; /* Біла іконка */
+    transform: translateY(-3px); /* Легке підняття */
+    box-shadow: 0 4px 10px rgba(255, 0, 160, 0.4); /* Світіння */
+}

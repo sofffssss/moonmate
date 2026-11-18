@@ -1,0 +1,387 @@
+/* =========================================
+   MAIN.CSS - Головний екран та Блок переваг
+   ========================================= */
+
+
+/* =========================================
+   ГОЛОВНИЙ ЕКРАН (HERO)
+   ========================================= */
+
+   .hero {
+    position: relative;
+    height: 900px;
+    min-height: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 45px;
+    overflow: hidden;
+
+    background-image: url('../img/Subtract.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #6B3061;
+}
+
+/* Легкий рожевий фільтр */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 0, 160, 0.07);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* --- ЗАГОЛОВОК НА МІСЯЦІ --- */
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 64px;
+    font-style: italic;
+    line-height: 1.25;
+    text-align: center;
+    color: #1a061b;
+
+    position: relative;
+    z-index: 3;
+
+    margin-top: 25px;
+    margin-bottom: 0;
+
+    text-shadow: 0 0 15px rgba(255,255,255,0.35);
+}
+
+/* --- ВИСЮЛЬКИ --- */
+
+.hanging {
+    position: absolute;
+    top: 0;
+    opacity: 0.45;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hanging-left-1 {
+    left: 0;
+    top: -20px;
+    height: 250px;
+}
+
+.hanging-left-2 {
+    left: 5%;
+    top: -50px;
+    height: 350px;
+}
+
+.hanging-right-1 {
+    right: 0;
+    top: -20px;
+    height: 250px;
+}
+
+.hanging-right-2 {
+    right: 5%;
+    top: -50px;
+    height: 350px;
+}
+
+/* --- ВОВКИ --- */
+
+.wolves-container {
+    position: absolute;
+    left: 0;
+    bottom: 105px;
+
+    width: 100%;
+    height: 600px;
+    max-width: none;
+
+    display: block;
+    z-index: 3;
+    margin: 0;
+}
+
+/* Загальні налаштування вовків */
+.wolf {
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.7));
+}
+
+/* Лівий вовк */
+.wolf-left {
+  left: 1%;
+  height: 370px;
+  width: auto;
+  bottom: 110px;
+}
+/* Правий вовк */
+.wolf-right {
+    right: 0;
+    height: 510px;
+    width: auto;
+    bottom: 90px;
+}
+
+/* --- ЛАПКИ --- */
+
+.paws {
+    position: absolute;
+    height: 65px;
+    width: auto;
+    z-index: 4;
+
+    filter: drop-shadow(0 0 8px rgba(255,0,160,0.6));
+}
+
+/* Ліва лапка */
+.paws-left {
+    left: 38%;
+    bottom: 340px;
+    transform: rotate(-15deg);
+}
+
+/* Права лапка */
+.paws-right {
+    right: 38%;
+    bottom: 340px;
+    transform: rotate(15deg);
+}
+
+/* --- СКЕЛЯ --- */
+
+.rock-transition {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+
+    width: 100%;
+    height: auto;
+
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* --- ТЕКСТ НА СКЕЛІ --- */
+
+.hero-story {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    min-height: 205px;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding: 25px 4% 55px;
+
+    /* Прибираємо старий градієнт, щоб було видно скелю */
+    background: transparent;
+}
+
+/* Заголовок ліворуч */
+.hero-story h2 {
+    width: 45%;
+
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-style: italic;
+    line-height: 1.2;
+
+    margin: 0;
+    text-align: left;
+
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+}
+
+.hero-story h2 em {
+    color: var(--accent-pink);
+}
+
+/* Опис праворуч */
+.hero-story p {
+    width: 55%;
+
+    font-size: 19px;
+    line-height: 1.6;
+    font-weight: 600;
+
+    text-align: right;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.9);
+}
+
+
+/* =========================================
+   MAIN.CSS - Головний екран та Блок переваг
+   ========================================= */
+
+/* ... (Стилі для Hero залишаються без змін, як були) ... */
+
+/* --- БЛОК ПЕРЕВАГ (FEATURES) --- */
+.features-section {
+  background-color: #6B3061;
+  padding: 80px 20px 100px; 
+  position: relative;
+  overflow: hidden; /* Щоб мандали не вилазили за краї */
+}
+
+/* Фонові мандали (збільшені та приглушені) */
+.bg-mandala-left {
+  position: absolute;
+  left: -150px;
+  top: 100px;
+  width: 600px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+}
+.bg-mandala-right {
+  position: absolute;
+  right: -200px;
+  top: 50px;
+  width: 700px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- ЧОРНИЙ НАПІВПРОЗОРИЙ ПРЯМОКУТНИК --- */
+.features-bg-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85%; /* Він не доходить до правого краю */
+  height: 480px; /* Висота під текст і кнопку */
+  background: rgba(0, 0, 0, 0.45); /* Чорний з прозорістю */
+  border-radius: 40px;
+  z-index: 1;
+}
+
+/* --- БУДДА --- */
+.buddha-img {
+  position: absolute;
+  right: 20px;
+  top: -30px; /* Піднімаємо трохи вгору */
+  height: 480px; /* Великий розмір */
+  z-index: 2;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.6));
+}
+
+/* --- КОНТЕНТ (Текст і кнопка) --- */
+.features-content {
+  position: relative;
+  z-index: 3;
+  padding: 50px 60px; /* Відступи всередині прямокутника */
+  max-width: 700px; /* Текст не заходить на Будду */
+}
+
+.features-text h2 {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+/* --- ГРАДІЄНТНИЙ ТЕКСТ MOONMATE --- */
+.huge-title {
+  font-family: var(--font-heading);
+  font-size: 85px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 20px;
+  
+  /* Градієнтний ефект */
+  background: linear-gradient(90deg, #ff007f 0%, #ff00a0 50%, #ff80df 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 20px;
+  color: #e0b0e0;
+}
+
+.cta-center { 
+  margin-top: 40px;
+}
+
+/* Плашка з Ганешею (всередині прямокутника) */
+.info-box {
+  background: rgba(0, 0, 0, 0.5); /* Темніша плашка */
+  border-radius: 15px;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+  border: 1px solid rgba(255,0,160,0.2);
+  max-width: 600px;
+}
+
+.ganesha-icon { height: 50px; }
+.info-box p { font-size: 14px; line-height: 1.5; }
+
+/* --- СІТКА КАРТОК --- */
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  position: relative;
+  z-index: 3;
+  margin-top: 50px;
+}
+
+.card {
+  background: linear-gradient(180deg, #ff00a0 0%, #d10083 100%);
+  padding: 30px 15px;
+  border-radius: 25px;
+  text-align: center;
+  border: 4px solid #ff66c4;
+  box-shadow:  inset 0 0 0 3px #ffffff, 0 10px 20px rgba(0,0,0,0.3);
+  width: calc(20% - 12px);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.card:hover { transform: translateY(-5px); }
+.card img { height: 45px; margin-bottom: 15px; }
+
+.card h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.card p { font-size: 12px; line-height: 1.4; color: #ffe6f9; }
+
+.hidden {
+    display: none !important;
+}

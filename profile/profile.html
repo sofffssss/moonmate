@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonmate — Профіль</title>
+    
+    <!-- Шрифти -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Стилі -->
+    <link rel="stylesheet" href="../main/css/reset.css">
+    <link rel="stylesheet" href="../main/css/base.css">
+    <link rel="stylesheet" href="../main/css/header.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="../main/css/media.css">
+</head>
+<body>
+
+    <!-- ================= ШАПКА (HEADER) ================= -->
+    <header class="header">
+        <div class="header-container">
+            <a href="../main/main.html" class="logo">
+                <img src="../main/img/Group 22.png" alt="Moonmate">
+            </a>
+
+            <nav class="nav-menu" id="mobile-menu">
+                <a href="../main/main.html" class="nav-link">Головна</a>
+                <a href="../search/search.html#why" class="nav-link">Знайти пару</a>
+                <a href="profile.html" class="nav-link active">Профіль</a>
+                <a href="../main/main.html#about" class="nav-link">Про нас</a>
+            </nav>
+
+            <button class="menu-toggle" id="menu-btn" aria-label="Відкрити меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= ОСНОВНИЙ КОНТЕНТ ПРОФІЛЮ ================= -->
+    <main class="profile-page">
+        <!-- Фонове зображення (image 57) -->
+        <div class="profile-bg"></div>
+        
+        <div class="profile-container">
+            <!-- Велика рамка -->
+            <div class="profile-card">
+                
+                <!-- Ліва частина: Аватар -->
+                <div class="profile-avatar-section">
+                    <div class="avatar-wrapper">
+                        <!-- Звичайний аватар -->
+                        <img src="../main/img/Rectangle 46.png" alt="Аватар" class="avatar-img default-avatar">
+                        <!-- Вовкулака (з'являється при наведенні) -->
+                        <img src="../main/img/Rectangle 46 (1).png" alt="Вовкулака" class="avatar-img hover-avatar">
+                    </div>
+                </div>
+
+                <!-- Права частина: Інформація -->
+                <div class="profile-info-section">
+                    
+                    <!-- Ім'я та стать -->
+                    <div class="profile-name-row">
+                        <h1 class="profile-name" id="profileName">Max Fall</h1>
+                        <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                    </div>
+
+                    <!-- Деталі -->
+                    <div class="profile-details">
+                        <p class="detail-item">
+                            <img src="../main/img/Group 40.png" alt="Локація" class="detail-icon">
+                            Місто: <span id="profileCity">Київ</span>
+                        </p>
+                        <p class="detail-item"><span id="profileAge">25</span> років</p>
+                        <p class="detail-item">Фаза місяця: <strong id="profileMoon">Повня</strong></p>
+                    </div>
+
+                    <!-- Блок "Шукаю" -->
+                    <div class="info-box pink-box">
+                        <p id="profileLooking">Шукаю справжнього кохання, споріднену душу, яка поділятиме мою любов до нічних прогулянок та глибоких розмов. Того, хто цінує вірність та відданість.</p>
+                    </div>
+
+                    <!-- Блок "Про себе" -->
+                    <h2 class="section-subtitle">Про себе</h2>
+                    <div class="info-box pink-box">
+                        <p id="profileAbout">Альфа зграї «Срібний місяць». Вірю, що кожен вовк має свою споріднену душу. Шукаю ту, з ким зустріну не лише повний місяць, а й усі світанки. Люблю нічні прогулянки, філософію та чесність.</p>
+                    </div>
+
+                    <!-- Кнопки -->
+                    <div class="profile-actions">
+                        <button class="btn btn-register btn-action" id="editBtn">Редагувати</button>
+                        <!-- ДОДАНО: Кнопка "Вийти" -->
+                        <button class="btn btn-register btn-action" id="logoutBtn" style="margin-left: 10px; background-color: #6B3061;">Вийти</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Підключення скрипта для меню, редагування та виходу -->
+    <script src="profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+/* =========================================
+   БАЗОВІ СТИЛІ
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat Alternates', sans-serif; 
+}
+
+body {
+    overflow: hidden; 
+}
+
+/* =========================================
+   ГОЛОВНИЙ ЕКРАН (ФОН)
+   ========================================= */
+.login-screen {
+    min-height: 100vh; 
+    width: 100%;
+    position: relative; /* Важливо для абсолютного позиціонування форми */
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat; 
+}
+
+/* =========================================
+   СТИЛІ ФОРМИ (БАЗОВІ)
+   ========================================= */
+.login-form {
+    background: transparent; 
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    
+    /* Абсолютне позиціонування */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Центруємо по горизонталі */
+}
+
+.form-title {
+    color: #ffffff;
+    font-weight: 700; 
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4); 
+}
+
+.input-group {
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    color: #e0e0e0; 
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.input-group input {
+    width: 100%;
+    background-color: #FC0FC0; 
+    border: 2px solid #ffffff; 
+    border-radius: 30px; 
+    color: white;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.input-group input:focus {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.submit-btn {
+    background-color: #FC0FC0;
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    color: white;
+    font-weight: 700; 
+    font-family: 'Montserrat Alternates', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover {
+    background-color: #FC0FC0; 
+    transform: scale(1.02); 
+}
+
+/* =========================================
+   КНОПКА "НАЗАД"
+   ========================================= */
+/* =========================================
+   КНОПКА "НАЗАД" (ЗНИЗУ ЗЛІВА)
+   ========================================= */
+.back-btn {
+    position: absolute;
+    bottom: 30px; /* Відступ від нижнього краю */
+    left: 30px;   /* Відступ від лівого краю */
+    
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.4); 
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.back-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.back-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* =========================================
+   АДАПТИВНІСТЬ (MEDIA QUERIES)
+   ========================================= */
+
+/* -----------------------------------------
+   1. ПК (За замовчуванням, екрани > 1024px)
+   ----------------------------------------- */
+.login-screen {
+    background-image: url('images/bg-desktop.jpg');
+}
+
+.login-form {
+    /* Налаштування положення для ПК */
+    top: 35%; /* Опускаємо форму трохи нижче центру, як на макеті */
+}
+
+.form-title {
+    font-size: 32px; 
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 15px;
+    margin-bottom: 5px;
+    padding-left: 20px; 
+}
+
+.input-group input {
+    padding: 10px 20px; 
+    font-size: 16px; 
+}
+
+.submit-btn {
+    margin-top: 10px;
+    padding: 8px 40px; 
+    font-size: 16px;
+}
+
+
+/* -----------------------------------------
+   2. ПЛАНШЕТИ (від 768px до 1024px)
+   ----------------------------------------- */
+@media (max-width: 1024px) {
+    .login-screen {
+        background-image: url('images/bg-tablet.jpg');
+    }
+    
+    .login-form {
+        /* На планшеті форма має бути трохи вище, бо картинка інша */
+        top: 25%; 
+        max-width: 350px; /* Робимо форму вужчою */
+    }
+
+    .form-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .input-group input {
+        padding: 8px 20px;
+        font-size: 15px;
+    }
+}
+
+
+/* -----------------------------------------
+   3. ТЕЛЕФОНИ (менше 767px)
+   ----------------------------------------- */
+@media (max-width: 767px) {
+    .login-screen {
+        background-image: url('images/bg-mobile.jpg');
+    }
+
+    .login-form {
+        /* На телефоні опускаємо форму під мандалу */
+        top: 22%; 
+        width: 85%; /* Трохи вужча форма для телефону */
+        max-width: 320px;
+    }
+
+    .form-title {
+        font-size: 22px; 
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 12px;
+    }
+
+    .input-group label {
+        font-size: 13px;
+        padding-left: 15px;
+    }
+
+    .input-group input {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 8px 30px;
+        font-size: 14px;
+    }
+    .back-btn {
+        bottom: 20px; /* Відступ знизу для телефону */
+        left: 20px;   /* Відступ зліва для телефону */
+        /* top: 15px;  <-- Цей рядок треба видалити або закоментувати */
+        font-size: 14px;
+        padding: 6px 15px;
+    }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="register-wrapper">
+        
+        <!-- Кутові картинки -->
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+
+        <!-- Біла заокруглена рамка -->
+        <div class="register-border-container">
+            
+            <a href="../main/main.html" class="back-btn">← Назад</a>
+
+            <div class="register-form-container">
+                <h1 class="form-title">Форма реєстрації</h1>
+
+                <form action="#" class="register-form">
+                    
+                    <div class="form-columns">
+                        <!-- ЛІВА КОЛОНКА -->
+                        <div class="column">
+                            <div class="input-group">
+                                <label>Ім'я</label>
+                                <input type="text" name="firstName" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Прізвище</label>
+                                <input type="text" name="lastName" required>
+                            </div>
+                            <div class="input-group">
+                                <label>По батькові</label>
+                                <input type="text" name="middleName">
+                            </div>
+                            <div class="input-group">
+                                <label>Дата народження</label>
+                                <input type="date" name="birthDate" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Місце проживання</label>
+                                <input type="text" name="location">
+                            </div>
+                            
+                            <div class="input-group radio-group">
+                                <label>Стать</label>
+                                <div class="radios">
+                                    <label><input type="radio" name="gender" value="male"> Ч</label>
+                                    <label><input type="radio" name="gender" value="female"> Ж</label>
+                                    <label><input type="radio" name="gender" value="other"> Інше</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ПРАВА КОЛОНКА -->
+                        <div class="column">
+                            <div class="input-group">
+                                <label>Email</label>
+                                <input type="email" name="email" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Фаза місяця</label>
+                                <!-- ЗМІНЕНО: Випадаючий список замість текстового поля -->
+                                <select name="moonPhase">
+                                    <option value="" disabled selected>Оберіть фазу</option>
+                                    <option value="full">Повня</option>
+                                    <option value="new">Молодик</option>
+                                    <option value="quarter">Квартал</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group radio-group">
+                                <label>Хто цікавить?</label>
+                                <div class="radios">
+                                    <label><input type="radio" name="interest" value="male"> Ч</label>
+                                    <label><input type="radio" name="interest" value="female"> Ж</label>
+                                    <label><input type="radio" name="interest" value="other"> Інше</label>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Який тип стосунків шукаєте?</label>
+                                <input type="text" name="relationshipType">
+                            </div>
+                            <div class="input-group">
+                                <label>Введіть ім'я користувача</label>
+                                <input type="text" name="username" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Введіть пароль</label>
+                                <input type="password" name="password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label>Розкажіть про себе</label>
+                        <textarea name="about" rows="6"></textarea>
+                    </div>
+
+                    <!-- Завантаження фото -->
+                    <div class="input-group full-width">
+                        <label>Виберіть фото, які хочете розмістити в профілі</label>
+                        <div class="photo-upload-grid">
+                            
+                            <!-- Квадрат 1 -->
+                            <div class="upload-box" onclick="document.getElementById('file-1').click()">
+                                <input type="file" id="file-1" accept="image/*" hidden onchange="previewImage(event, this)">
+                                <img src="img/Picture3.png" alt="Заглушка" class="placeholder-img">
+                                <span class="plus-icon">+</span>
+                                <img class="preview-img" id="preview-1" src="" alt="Прев'ю">
+                            </div>
+
+                            <!-- Квадрат 2 -->
+                            <div class="upload-box" onclick="document.getElementById('file-2').click()">
+                                <input type="file" id="file-2" accept="image/*" hidden onchange="previewImage(event, this)">
+                                <img src="img/Picture3.png" alt="Заглушка" class="placeholder-img">
+                                <span class="plus-icon">+</span>
+                                <img class="preview-img" id="preview-2" src="" alt="Прев'ю">
+                            </div>
+
+                            <!-- Квадрат 3 -->
+                            <div class="upload-box" onclick="document.getElementById('file-3').click()">
+                                <input type="file" id="file-3" accept="image/*" hidden onchange="previewImage(event, this)">
+                                <img src="img/Picture3.png" alt="Заглушка" class="placeholder-img">
+                                <span class="plus-icon">+</span>
+                                <img class="preview-img" id="preview-3" src="" alt="Прев'ю">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="submit-btn">Зареєструватися</button>
+                        <p class="disclaimer">*Реєструючись, ви підтверджуєте, що вказали правдиву інформацію. Усі профілі проходять перевірку</p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Підключення нашого скрипта -->
+    <script src="script.js"></script>
+</body>
+</html>

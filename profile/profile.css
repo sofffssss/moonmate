@@ -1,0 +1,265 @@
+/* =========================================
+   PROFILE.CSS - Стилі сторінки профілю
+   ========================================= */
+
+.profile-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background-image: url('../main/img/image 57.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Затемнення фону, щоб картка читалась краще */
+.profile-page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(26, 6, 27, 0.4);
+    z-index: 1;
+}
+
+.profile-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1300px; 
+}
+
+/* --- ГОЛОВНА КАРТКА (Рамка) --- */
+.profile-card {
+    display: flex;
+    background: rgba(0, 0, 0, 0.48); 
+    border: 4px solid rgba(255, 255, 255, 0.8); 
+    border-radius: 40px;
+    padding: 30px 40px; 
+    gap: 25px; 
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* --- ЛІВА ЧАСТИНА: АВАТАР --- */
+.profile-avatar-section {
+    flex-shrink: 0;
+    /* ЗМІНЕНО: Прибрано min-width, який заважав зменшенню */
+    width: 35%; 
+    max-width: 450px;
+}
+
+.avatar-wrapper {
+    position: relative;
+    width: 100%;
+    /* ЗБЕРЕЖЕНО: Пропорції 3:4 */
+    padding-top: 133%; 
+    border-radius: 30px;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.avatar-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.hover-avatar {
+    opacity: 0;
+}
+
+.avatar-wrapper:hover .default-avatar {
+    opacity: 0;
+}
+
+.avatar-wrapper:hover .hover-avatar {
+    opacity: 1;
+}
+
+/* --- ПРАВА ЧАСТИНА: ІНФОРМАЦІЯ --- */
+.profile-info-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; 
+}
+
+.profile-name-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 8px; 
+}
+
+.profile-name {
+    font-family: 'Cormorant Garamond', var(--font-heading);
+    font-size: 68px; 
+    font-weight: 600;
+    font-style: italic;
+    color: #fff;
+    margin: 0;
+    line-height: 1;
+}
+
+.gender-icon {
+    height: 35px; 
+}
+
+/* Деталі (Місто, Вік, Фаза) */
+.profile-details {
+    margin-bottom: 12px; 
+}
+
+.detail-item {
+    font-size: 18px; 
+    margin-bottom: 3px; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e0b0e0;
+}
+
+.detail-item strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.detail-icon {
+    height: 26px;
+}
+
+/* Рожеві блоки */
+.info-box {
+    background: #FC0FC0; 
+    border-radius: 20px;
+    padding: 15px 20px; 
+    margin-bottom: 12px; 
+    font-size: 17px; 
+    line-height: 1.5;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(255, 0, 160, 0.3);
+    border: 4px solid #ffffff; 
+}
+
+.section-subtitle {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 6px; 
+    font-weight: 400;
+}
+
+/* Кнопка "Редагувати" */
+.profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto; 
+    padding-top: 0; 
+}
+
+.btn-action {
+    padding: 15px 50px; 
+    font-size: 18px;
+    border-radius: 30px;
+    background-color: #FC0FC0; 
+    border: 4px solid #ffffff; 
+    color: white;
+    font-weight: 700; 
+    font-family: 'Montserrat Alternates', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-action:hover {
+    background-color: #FC0FC0;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); 
+    border: 4px solid #ffffff;
+    transform: scale(1.02); 
+}
+
+/* =========================================
+   АДАПТИВНІСТЬ (МЕДІА-ЗАПИТИ)
+   ========================================= */
+
+/* --- ПЛАНШЕТИ (від 768px до 1024px) --- */
+@media (max-width: 1024px) {
+    .profile-card {
+        flex-direction: column; 
+        align-items: center;
+        padding: 30px 20px;
+    }
+
+    .profile-avatar-section {
+        /* ЗМІНЕНО: на планшеті картинка займає 50% ширини картки */
+        width: 50%; 
+        max-width: 350px;
+        margin-bottom: 20px;
+    }
+
+    .profile-info-section {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-name-row {
+        justify-content: center;
+    }
+
+    .profile-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-box {
+        width: 100%;
+        text-align: left;
+    }
+
+    .profile-actions {
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+/* --- ТЕЛЕФОНИ (до 767px) --- */
+@media (max-width: 767px) {
+    .profile-card {
+        padding: 20px 15px;
+        border-radius: 20px;
+    }
+    .profile-name {
+        font-size: 42px; 
+    }
+
+    .detail-item {
+        font-size: 14px;
+    }
+
+    .info-box {
+        font-size: 14px;
+        padding: 10px 15px;
+        border-width: 3px;
+    }
+
+    .section-subtitle {
+        font-size: 20px;
+    }
+
+    .btn-action {
+        width: 100%; /* Кнопка на всю ширину */
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}

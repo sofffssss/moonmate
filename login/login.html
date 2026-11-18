@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід в систему</title>
+    
+    <!-- Підключення шрифту Montserrat Alternates -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-screen">
+        
+        <!-- Кнопка "Назад" -->
+        <a href="../main/main.html" class="back-btn">← Назад</a>
+
+        <div class="login-form">
+            <h1 class="form-title">Вхід в систему</h1>
+
+            <!-- Додано id="loginForm" для зручності в JS -->
+            <form id="loginForm" action="#" method="POST">
+                <div class="input-group">
+                    <label for="username">Введіть ім'я користувача</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Введіть пароль</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+               <!-- Повертаємо кнопку замість посилання -->
+               <button type="submit" class="submit-btn">Ввійти</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Підключення скрипта -->
+    <script src="login.js"></script>
+</body>
+</html>

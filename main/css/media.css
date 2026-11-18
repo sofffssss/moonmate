@@ -1,0 +1,479 @@
+/* =========================================
+   MEDIA.CSS - Адаптивність
+   ========================================= */
+
+/* =========================================
+   ПЛАНШЕТИ (Від 768px до 1024px)
+   ========================================= */
+@media (max-width: 1024px) {
+    /* --- ШАПКА --- */
+    /* На планшетах навігація залишається звичайною (без бургера) */
+    
+    .header-buttons .btn-login,
+    .header-buttons .btn-register {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    /* --- HERO --- */
+    .hero-title {
+        font-size: 48px;
+        margin-top: 40px;
+        text-align: left;
+        padding-left: 30px;
+        width: 100%;
+    }
+
+    .wolves-container { height: 500px; }
+    .wolf-left { height: 250px; }
+    .wolf-right { height: 320px; }
+
+    .hero-story {
+        text-align: left;
+        padding-left: 30px;
+        bottom: 20px;
+    }
+    .hero-story h2 { font-size: 32px; }
+
+    /* --- FEATURES --- */
+    .features-bg-box {
+        width: 95%;
+        height: 420px;
+    }
+    .buddha-img {
+        height: 300px;
+        top: 10px;
+        right: 10px;
+    }
+    .features-content {
+        padding: 30px;
+        max-width: 100%;
+    }
+    .huge-title { font-size: 60px; }
+    .cta-center { text-align: left; padding-left: 30px; }
+
+    .cards-grid { justify-content: space-around; }
+    .card {
+        width: calc(50% - 20px); 
+        margin-bottom: 20px;
+    }
+    
+    .footer-container { gap: 30px; }
+    .footer-arch-img { height: 60px; }
+
+    /* --- HERO (додаткові стилі) --- */
+    .hero {
+        height: 800px;
+        min-height: 800px;
+    }
+
+    .hero-title {
+        font-size: 50px;
+        margin-top: 20px;
+    }
+
+    .wolves-container {
+        height: 500px;
+        bottom: 100px;
+    }
+
+    .wolf-left { height: 300px; }
+    .wolf-right { height: 400px; }
+
+    .paws { height: 50px; }
+    .paws-left { left: 37%; bottom: 280px; }
+    .paws-right { right: 37%; bottom: 280px; }
+
+    .hero-story {
+        min-height: 180px;
+        padding: 25px 25px 40px;
+    }
+    .hero-story h2 { font-size: 32px; }
+    .hero-story p { font-size: 15px; }
+
+    /* --- ПРОФІЛЬ --- */
+    .profile-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        gap: 30px;
+    }
+
+    .profile-avatar-section {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .avatar-wrapper {
+        height: 400px;
+    }
+
+    .profile-info-section {
+        width: 100%;
+        text-align: left;
+    }
+
+    .profile-name {
+        font-size: 48px;
+    }
+
+    .profile-actions {
+        justify-content: center;
+    }
+
+    /* --- SEARCH --- */
+    .features-row {
+        gap: 20px;
+    }
+    .feature-center-icon {
+        top: -40px;
+    }
+    .feature-center-icon img {
+        height: 60px;
+    }
+    .feature-icon-circle {
+        width: 80px;
+        height: 80px;
+    }
+    .feature-icon-circle img {
+        height: 40px;
+    }
+    .feature-item h3 {
+        font-size: 18px;
+    }
+
+    .filters-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .filters-grid .filter-group:last-child {
+        grid-column: span 2;
+    }
+
+    .profiles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   ТЕЛЕФОНИ (До 768px)
+   ========================================= */
+@media (max-width: 768px) {
+    /* --- ШАПКА (БУРГЕР-МЕНЮ) --- */
+    .header-container {
+        padding: 0 15px;
+        height: 60px;
+    }
+    
+    .logo img {
+        height: 35px;
+    }
+
+    /* ВИПАДАЮЧЕ БУРГЕР-МЕНЮ */
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        
+        /* Чорний фон з прозорістю 48% для всього контейнера меню */
+        background-color: rgba(0, 0, 0, 0.48) !important; 
+        backdrop-filter: blur(8px); /* Розмиття фону за меню для кращого читання */
+        
+        flex-direction: column;
+        align-items: stretch; /* Розтягуємо пункти на всю ширину */
+        padding: 0; 
+        gap: 0; 
+        
+        border-top: 2px solid #FC0FC0;
+        border-bottom: 2px solid #FC0FC0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+        
+        display: none; 
+        z-index: 99;
+    }
+
+    /* ПОКАЗУЄМО МЕНЮ, КОЛИ Є КЛАС ACTIVE */
+    .nav-menu.active {
+        display: flex !important;
+    }
+
+    /* ПОКАЗУЄМО БУРГЕР */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* ХОВАЄМО КНОПКИ ВХОДУ/РЕЄСТРАЦІЇ НА ТЕЛЕФОНІ */
+    .header-buttons {
+        display: none !important;
+    }
+
+    /* Стилі для посилань у мобільному меню */
+    .nav-menu .nav-link {
+        display: block; 
+        width: 100%; 
+        padding: 16px 20px;
+        font-size: 18px;
+        text-align: center;
+        color: #fff !important; 
+        
+        /* Прозорий фон самих слів, щоб працював загальний чорний фон контейнера (48%) */
+        background-color: transparent !important; 
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Прибираємо зайві псевдоелементи, які могли створювати конфлікти фонів */
+    .nav-menu .nav-link::before {
+        display: none !important;
+    }
+
+    .nav-menu .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    /* АКТИВНИЙ ПУНКТ (наприклад, Головна) — залишається яскраво-рожевим */
+    .nav-menu .nav-link.active {
+        background-color: #FC0FC0 !important; 
+        color: #fff !important;
+        font-weight: 600;
+    }
+
+    /* Ефект при натисканні */
+    .nav-menu .nav-link:active {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    /* Переконуємося, що .hidden працює */
+    .hidden {
+        display: none !important;
+    }
+
+    /* --- HERO --- */
+    .hero {
+        height: 750px;
+        min-height: 750px;
+        padding-top: 30px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+        margin-top: 15px;
+    }
+
+    .hanging-left-2,
+    .hanging-right-2 {
+        height: 220px;
+    }
+
+    .wolves-container {
+        height: 380px;
+        bottom: 120px;
+    }
+
+    .wolf-left {
+        height: 190px;
+        left: 0;
+    }
+
+    .wolf-right {
+        height: 250px;
+        right: 0;
+    }
+
+    .paws {
+        height: 35px;
+    }
+
+    .paws-left {
+        left: 35%;
+        bottom: 220px;
+    }
+
+    .paws-right {
+        right: 35%;
+        bottom: 220px;
+    }
+
+    .hero-story {
+        min-height: 170px;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 20px 15px 30px;
+        text-align: center;
+    }
+
+    .hero-story h2,
+    .hero-story p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-story h2 {
+        font-size: 27px;
+    }
+
+    .hero-story p {
+        font-size: 12px;
+    }
+
+    .rock-transition {
+        width: 150%;
+        max-width: none;
+        left: -25%;
+    }
+
+    /* --- FEATURES --- */
+    .features-section { padding: 40px 15px; }
+    .features-bg-box {
+        position: relative;
+        width: 100%;
+        height: auto;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    .buddha-img {
+        position: static;
+        display: block;
+        height: 200px;
+        margin: 0 auto 20px auto;
+    }
+    .features-content {
+        padding: 0;
+        text-align: center;
+    }
+    .features-text h2 { font-size: 24px; }
+    .huge-title { font-size: 50px; }
+    .subtitle { font-size: 16px; }
+    
+    .cta-center {
+        text-align: center;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 20px;
+        min-height: auto;
+    }
+
+    /* --- FOOTER --- */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+    .footer-arch-img {
+        position: static;
+        display: block;
+        margin: 20px auto 0 auto;
+        height: 60px;
+    }
+
+    /* --- ПРОФІЛЬ --- */
+    .profile-page {
+        padding: 20px 10px;
+    }
+
+    .profile-card {
+        padding: 20px;
+        border-radius: 25px;
+    }
+
+    .avatar-wrapper {
+        height: 350px;
+        border-radius: 20px;
+    }
+
+    .profile-name {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .profile-name-row {
+        justify-content: center;
+    }
+
+    .profile-details {
+        text-align: center;
+    }
+
+    .detail-item {
+        justify-content: center;
+    }
+
+    .info-box {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .section-subtitle {
+        text-align: center;
+    }
+    
+    .btn-action {
+        width: 100%;
+    }
+
+    /* --- SEARCH --- */
+    .search-title {
+        font-size: 32px;
+    }
+    .search-subtitle {
+        font-size: 16px;
+    }
+
+    .features-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .feature-center-icon {
+        position: relative;
+        top: 0;
+        margin-bottom: 20px;
+    }
+    .feature-item {
+        padding-top: 0;
+    }
+
+    .filters-section {
+        padding: 20px;
+        margin: 0 10px 30px 10px;
+    }
+    .filters-header h2 {
+        font-size: 24px;
+    }
+    .filters-grid {
+        grid-template-columns: 1fr;
+    }
+    .filters-grid .filter-group:last-child {
+        grid-column: span 1;
+    }
+
+    .profile-mini-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .mini-avatar {
+        width: 100%;
+        height: 200px;
+    }
+    .mini-header {
+        justify-content: center;
+    }
+    .like-icon {
+        margin-left: 10px;
+    }
+    .mini-tags {
+        justify-content: center;
+    }
+}

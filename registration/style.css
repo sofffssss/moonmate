@@ -1,0 +1,512 @@
+/* =========================================
+   ЗМІННІ ДЛЯ ПЛАВНОГО МАСШТАБУВАННЯ
+   ========================================= */
+:root {
+    --base-font-size: 1.1vw; 
+    --title-font-size: 2.5vw;
+    --input-padding-y: 0.8vw;
+    --input-padding-x: 1.5vw;
+    --gap-size: 3vw;
+    --border-radius-main: 3vw;
+    --border-width: 0.2vw;
+    --box-shadow-main: 0.3vw 0.3vw 0.8vw rgba(0, 0, 0, 0.2);
+    --label-font-size: 1.4vw;
+}
+
+/* =========================================
+   БАЗОВІ СТИЛІ
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat Alternates', sans-serif; 
+}
+
+body {
+    background-color: #6B3061; 
+}
+
+/* =========================================
+   СТОРІНКА РЕЄСТРАЦІЇ
+   ========================================= */
+.register-wrapper {
+    width: 100%;
+    min-height: 100vh; 
+    position: relative;
+    padding: 2vw; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+}
+
+/* --- КУТОВІ КАРТИНКИ --- */
+.corner {
+    position: absolute;
+    width: 22vw; 
+    height: 22vw; 
+    background-image: url('img/Picture1.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 5; 
+}
+
+.corner.top-left {
+    top: 0; 
+    left: 0;
+}
+
+.corner.top-right {
+    top: 0; 
+    right: 0;
+    transform: scaleX(-1); 
+}
+
+/* --- БІЛА ЗАОКРУГЛЕНА РАМКА --- */
+.register-border-container {
+    width: 100%;
+    max-width: 95vw; 
+    border: var(--border-width) solid #ffffff; 
+    border-radius: var(--border-radius-main);       
+    
+    padding: 8vw 6vw 8vw 6vw; 
+    
+    position: relative; 
+    z-index: 2; 
+    margin-top: 0; 
+    margin-bottom: 4vw; 
+
+    /* ЛІВА КВІТКА (через background) */
+    background-image: url('img/Picture2.png');
+    background-position: left 0 bottom -5vw; 
+    background-repeat: no-repeat;
+    background-size: 35vw auto; 
+
+    /* ВИПРАВЛЕНО: Обрізаємо все, що виходить за межі рамки */
+    overflow: hidden; 
+}
+
+/* ПРАВА КВІТКА (через псевдоелемент) */
+.register-border-container::after {
+    content: '';
+    position: absolute;
+    
+    bottom: -5vw; 
+    right: 0;     
+    
+    width: 35vw; 
+    height: 35vw; 
+    background-image: url('img/Picture2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left; /* Змінено для симетрії */
+    
+    transform: scaleX(-1); 
+    
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+/* --- КНОПКА "НАЗАД" --- */
+.back-btn {
+    position: absolute;
+    bottom: 2vw; 
+    left: 2vw;   
+    color: white;
+    text-decoration: none;
+    font-size: var(--base-font-size);
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.4); 
+    padding: 0.6vw 1.5vw;
+    border-radius: 2vw;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.back-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.register-form-container {
+    width: 100%;
+    /* ПРИБРАНО зайвий padding-bottom, щоб не було пустоти */
+    position: relative;
+    z-index: 3; /* Контент вище за квітки */
+}
+
+.form-title {
+    color: #ffffff;
+    font-size: var(--title-font-size); 
+    font-weight: 700; 
+    margin-bottom: 2.5vw;
+    text-align: center;
+    text-shadow: 0.2vw 0.2vw 0.5vw rgba(0,0,0,0.4); 
+}
+
+/* =========================================
+   КОЛОНКИ ТА ПОЛЯ
+   ========================================= */
+.form-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gap-size); 
+    margin-bottom: 2vw;
+    width: 100%;
+}
+
+.column {
+    flex: 1; 
+}
+
+.input-group {
+    margin-bottom: 1.5vw;
+    text-align: left;
+}
+
+.input-group.full-width {
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    color: #e0e0e0; 
+    font-size: var(--label-font-size); 
+    margin-bottom: 0.5vw;
+    padding-left: 1.5vw; 
+    text-shadow: 0.1vw 0.1vw 0.2vw rgba(0,0,0,0.5);
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group input[type="date"],
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: var(--input-padding-y) var(--input-padding-x); 
+    background-color: #FC0FC0; 
+    border: var(--border-width) solid #ffffff; 
+    border-radius: 2vw; 
+    color: white;
+    font-size: var(--base-font-size); 
+    font-family: 'Montserrat Alternates', sans-serif;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: var(--box-shadow-main); 
+    appearance: none; 
+}
+
+/* Кастомна стрілочка для select */
+.input-group select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1vw center;
+    background-size: 1.5vw;
+    cursor: pointer;
+}
+
+.input-group select option {
+    background-color: #6B3061;
+    color: white;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    box-shadow: 0 0 1.5vw rgba(255, 255, 255, 0.8);
+}
+
+.input-group textarea {
+    border-radius: 1.5vw; 
+    resize: none; 
+    padding: 1.5vw var(--input-padding-x);
+}
+
+/* --- Радіо кнопки --- */
+.radio-group .radios {
+    display: flex;
+    gap: 1.5vw;
+    padding-left: 1.5vw;
+    color: white;
+    font-size: var(--base-font-size);
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    padding-left: 0; 
+    cursor: pointer;
+    font-size: var(--base-font-size); 
+}
+
+input[type="radio"] {
+    accent-color: #FC0FC0; 
+    width: 1.2vw;
+    height: 1.2vw;
+    cursor: pointer;
+}
+
+/* =========================================
+   ЗАВАНТАЖЕННЯ ФОТО (ВЕЛИКІ КВАДРАТИ)
+   ========================================= */
+.photo-upload-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw; 
+    width: 100%; 
+    margin-top: 1vw;
+}
+
+.upload-box {
+    flex: 1; 
+    aspect-ratio: 1 / 1; 
+    background-color:#FC0FC0;
+    border: var(--border-width) solid #ffffff;
+    border-radius: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 4vw; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative; 
+    overflow: hidden; 
+}
+
+.upload-box:hover {
+    background-color: #FC0FC0;
+    transform: scale(1.02); 
+}
+
+.plus-icon {
+    transition: opacity 0.3s;
+}
+
+.preview-img {
+    display: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: 2;
+}
+
+.upload-box.has-image .preview-img {
+    display: block;
+}
+
+.upload-box.has-image .plus-icon {
+    opacity: 0; 
+}
+
+/* =========================================
+   КНОПКА ТА ТЕКСТ
+   ========================================= */
+.form-footer {
+    text-align: center;
+    margin-top: 3vw;
+}
+
+.submit-btn {
+    padding: 1vw 5vw; 
+    background-color: #FC0FC0;
+    border: var(--border-width) solid #ffffff;
+    border-radius: 3vw;
+    color: white;
+    font-size: 1.3vw;
+    font-weight: 700; 
+    font-family: 'Montserrat Alternates', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: var(--box-shadow-main);
+}
+
+.submit-btn:hover {
+    background-color: #FC0FC0; 
+    transform: scale(1.02); 
+}
+
+.disclaimer {
+    color: #e0e0e0;
+    font-size: 1vw; 
+    margin-top: 3vw; 
+    max-width: 60vw; 
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5; 
+}
+
+/* =========================================
+   АДАПТИВНІСТЬ (МЕДІА-ЗАПИТИ)
+   ========================================= */
+
+/* --- ПЛАНШЕТИ (від 768px до 1366px) --- */
+@media (max-width: 1366px) and (min-width: 768px) {
+    :root {
+        --base-font-size: 1.3vw; 
+        --title-font-size: 2.8vw;
+        --input-padding-y: 1vw;
+        --input-padding-x: 1.8vw;
+        --gap-size: 4vw;
+        --label-font-size: 1.6vw; 
+    }
+    
+    .corner {
+        width: 25vw;
+        height: 25vw;
+    }
+
+    .register-border-container {
+        padding: 10vw 7vw 10vw 7vw; 
+        background-position: left 0 bottom -6vw;
+        background-size: 40vw auto;
+    }
+
+    .register-border-container::after {
+        bottom: -6vw;
+        right: 0;
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .input-group select {
+        background-size: 2vw;
+        background-position: right 1.5vw center;
+    }
+
+    .disclaimer {
+        font-size: 1.2vw; 
+        margin-top: 3.5vw;
+        max-width: 70vw;
+    }
+}
+
+/* --- ТЕЛЕФОНИ (до 767px) --- */
+@media (max-width: 767px) {
+    :root {
+        --base-font-size: 2.8vw; 
+        --title-font-size: 5vw;
+        --input-padding-y: 1.5vw;
+        --input-padding-x: 3vw;
+        --gap-size: 3vw;
+        --border-radius-main: 5vw;
+        --border-width: 0.4vw;
+        --label-font-size: 3.2vw; 
+    }
+
+    .register-wrapper {
+        padding: 2vw;
+    }
+
+    .corner {
+        width: 30vw; 
+        height: 30vw;
+    }
+
+    .register-border-container {
+        padding: 15vw 3vw 15vw 3vw; 
+        border-radius: 5vw; 
+        margin-top: 2vw; 
+        margin-bottom: 2vw;
+        
+        /* ЗМЕНШЕНО РОЗМІР ЛІВОЇ КВІТКИ */
+        background-position: left 0 bottom -3vw; 
+        background-size: 30vw auto; /* Зменшено з 50vw до 30vw */
+    }
+
+    .register-border-container::after {
+        /* ЗМЕНШЕНО РОЗМІР ПРАВОЇ КВІТКИ */
+        bottom: -3vw; 
+        right: 0;
+        width: 30vw; /* Зменшено з 50vw до 30vw */
+        height: 30vw; 
+    }
+
+    .form-columns {
+        flex-direction: row; 
+        gap: 3vw;
+    }
+
+    .photo-upload-grid {
+        gap: 2vw; 
+        justify-content: space-between; 
+    }
+
+    .upload-box {
+        flex: 1; 
+        width: auto; 
+        height: auto;
+        aspect-ratio: 1 / 1; 
+        font-size: 8vw; 
+        border-radius: 3vw;
+    }
+
+    .submit-btn {
+        padding: 2vw 6vw;
+        font-size: 3vw;
+    }
+
+    .disclaimer {
+        font-size: 2.2vw; 
+        margin-top: 4vw;
+        max-width: 85vw;
+    }
+
+    .back-btn {
+        bottom: 2vw;
+        left: 2vw;
+        font-size: 2.5vw;
+        padding: 1.5vw 3vw;
+    }
+
+    .input-group select {
+        background-size: 4vw;
+        background-position: right 2vw center;
+    }
+}
+
+/* Стилі для картинки-заглушки всередині квадрата */
+.placeholder-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Займає весь квадрат */
+    
+    /* ГОЛОВНЕ ВИПРАВЛЕННЯ: */
+    object-fit: contain; /* Вписує картинку повністю, не обрізаючи */
+    object-position: top center; /* Притискає до верху і центрує по горизонталі */
+    
+    z-index: 1; 
+    pointer-events: none; 
+}
+
+/* Ховаємо заглушку, коли завантажено фото */
+.upload-box.has-image .placeholder-img {
+    display: none;
+}
+
+/* Стилі для поля "Розкажіть про себе" з картинкою */
+textarea {
+    /* Ваші існуючі стилі для textarea залишаються (колір, рамка, радіус) */
+    
+    /* ДОДАНО: Фонове зображення */
+    background-image: url('img/Picture4.png');
+    background-size: contain; /* Вписує картинку повністю, не обрізаючи */
+    background-position: center bottom; /* Розміщує картинку по центру знизу (як на скріншоті) */
+    background-repeat: no-repeat;
+    
+    /* Щоб картинка не заважала читати текст, можна додати трохи відступу зверху */
+    padding-top: 2vw; 
+}
+
+/* Важливо: при фокусі (коли ви клікаєте на поле), фон не повинен зникати */
+textarea:focus {
+    background-image: url('img/Picture4.png'); /* Залишаємо картинку */
+    /* ваші стилі для box-shadow залишаються */
+}

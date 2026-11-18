@@ -1,0 +1,550 @@
+/* =========================================
+   SEARCH.CSS - Стилі сторінки пошуку
+   ========================================= */
+
+/* --- ФОН СТОРІНКИ --- */
+.search-page {
+  background-color: var(--bg-dark);
+  padding-bottom: 50px;
+  /* Якщо є загальний фоновий візерунок, додайте його сюди */
+}
+
+/* --- БЛОК 1: ІДЕАЛЬНИЙ ВОВК --- */
+.search-hero {
+  position: relative;
+  padding: 60px 20px;
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 0, 160, 0.3);
+  /* ФОН (image 31) */
+  background-image: url('../main/img/image 57.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  margin-bottom: 30px;
+}
+
+.search-title {
+  font-family: var(--font-heading);
+  font-size: 42px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.search-subtitle {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 20px;
+  color: #e0b0e0;
+  margin-bottom: 50px;
+}
+
+/* Ряд з іконками */
+.features-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Центральна іконка (Лотос) */
+.feature-center-icon {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.feature-center-icon img {
+  height: 80px;
+  filter: drop-shadow(0 0 15px rgba(255, 0, 160, 0.8));
+}
+
+/* Іконки зліва і справа */
+.feature-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.feature-icon-circle {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  background: rgba(0,0,0,0.3);
+  box-shadow: 0 0 15px rgba(255, 0, 160, 0.5);
+}
+
+.feature-icon-circle img {
+  height: 50px;
+}
+
+.feature-item h3 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  color: #ff66c4;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.feature-item p {
+  font-size: 14px;
+  color: #fff;
+  max-width: 200px;
+}
+
+/* --- КНОПКА ПОСЕРЕДИНІ --- */
+.main-cta-wrapper {
+  text-align: center;
+  margin: 40px 0;
+}
+
+/* =========================================
+   БЛОК 2: ПАНЕЛЬ ФІЛЬТРІВ (Оновлено)
+   ========================================= */
+
+   .filters-section {
+    background: linear-gradient(180deg, #1a061b 0%, #2e0a30 100%);
+    border: 2px solid var(--accent-pink);
+    border-radius: 40px;
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+    padding: 40px 50px 60px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 0, 160, 0.2);
+}
+
+/* Заголовок з лотосами */
+.filters-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.filters-header h2 {
+    font-family: 'Cormorant Garamond', var(--font-heading);
+    font-style: italic;
+    font-size: 38px;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.lotus-small {
+    height: 45px;
+    filter: drop-shadow(0 0 5px rgba(255, 0, 160, 0.5));
+}
+
+/* Сітка фільтрів */
+.filters-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 40px;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.filter-label {
+    font-size: 15px;
+    color: #e0b0e0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.icon-user {
+    font-size: 18px;
+}
+
+.moon-icon {
+    height: 18px;
+}
+
+/* --- ПОВЗУНКИ (СЛАЙДЕРИ) --- */
+.range-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.range-val {
+    font-weight: 600;
+    min-width: 25px;
+    text-align: center;
+}
+
+/* Стилізація самого слайдера */
+.slider {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #4a0e4e; /* Темно-фіолетовий трек */
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Повзунок (кружечок) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-pink);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--accent-pink), 0 0 20px var(--accent-pink);
+    transition: 0.2s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Firefox */
+.slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--accent-pink);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 10px var(--accent-pink);
+}
+
+/* Текст відстані під слайдером */
+.distance-text {
+    font-size: 13px;
+    color: #fff;
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* --- КНОПКИ ФАЗ МІСЯЦЯ --- */
+.moon-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.moon-btn {
+    background: transparent;
+    border: 1px solid #ff66c4;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+
+.moon-btn.active {
+    background: var(--accent-pink);
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 10px rgba(255, 0, 160, 0.5);
+}
+
+.moon-btn:hover:not(.active) {
+    background: rgba(255, 0, 160, 0.2);
+}
+
+/* --- КНОПКА ЗАСТОСУВАТИ --- */
+.filters-actions {
+    text-align: center;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+}
+.filters-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Відступ між кнопками */
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Стиль для контурної кнопки "Скинути" */
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 12px 40px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: #fff;
+  color: #2e0a30;
+}
+
+/* Декоративні лотоси по краях */
+.filters-lotus-left,
+.filters-lotus-right {
+    position: absolute;
+    bottom: 0;
+    height: 120px;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.filters-lotus-left {
+    left: 0;
+    transform: translate(-20%, 20%);
+}
+
+.filters-lotus-right {
+    right: 0;
+    transform: translate(20%, 20%) scaleX(-1);
+}
+
+.moon-icon { height: 18px; }
+
+/* Слайдери */
+.range-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.slider {
+  flex-grow: 1;
+  -webkit-appearance: none;
+  height: 4px;
+  background: #555;
+  border-radius: 2px;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--accent-pink);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--accent-pink);
+}
+
+.distance-value {
+  font-size: 12px;
+  color: #fff;
+  text-align: right;
+}
+
+/* Кнопки фаз місяця */
+.moon-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.moon-btn {
+  background: transparent;
+  border: 1px solid #ff66c4;
+  color: #ff66c4;
+  padding: 5px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.moon-btn.active, .moon-btn:hover {
+  background: var(--accent-pink);
+  color: #fff;
+}
+
+.filters-actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* --- БЛОК 3: СІТКА КАРТОК --- */
+.cards-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+  gap: 20px;
+}
+
+/* Міні-картка */
+.profile-mini-card {
+  display: flex;
+  background: rgba(34, 11, 36, 0.9);
+  border: 2px solid var(--accent-pink);
+  border-radius: 20px;
+  padding: 15px;
+  gap: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-mini-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 0, 160, 0.4);
+}
+
+.mini-avatar {
+  width: 120px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid #ff66c4;
+}
+
+.mini-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mini-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mini-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.mini-header h3 {
+  font-family: 'Cormorant Garamond', var(--font-heading);
+  font-style: italic;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.gender-icon, .like-icon {
+  height: 18px;
+}
+
+.like-icon {
+  margin-left: auto; /* Притискає серце вправо */
+  cursor: pointer;
+  height: 24px;
+}
+
+.mini-detail {
+  font-size: 12px;
+  color: #e0b0e0;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.detail-icon {
+  height: 14px;
+}
+
+/* Теги (Подорожі, Музика) */
+.mini-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.mini-tags span {
+  background: rgba(255, 0, 160, 0.2);
+  border: 1px solid #ff66c4;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 10px;
+}
+
+/* --- ПАГІНАЦІЯ --- */
+.pagination-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+/* =========================================
+   ПАГІНАЦІЯ (Додайте в кінець search.css)
+   ========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+/* Щоб картки не "стрибали", коли з'являються/зникають */
+.profiles-grid {
+    min-height: 800px; /* Приблизна висота для 8 карток */
+}
+
+/* =========================================
+   АНІМАЦІЯ ДЛЯ ЛАЙКІВ
+   ========================================= */
+
+   .like-icon {
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+/* Ефект при наведенні */
+.like-icon:hover {
+    transform: scale(1.15);
+}
+
+/* Ефект, коли лайк поставлено (світіння) */
+.like-icon.liked {
+    filter: drop-shadow(0 0 8px var(--accent-pink));
+    transform: scale(1.1);
+}
+
+/* Вирівнювання карток у сітці */
+.profiles-grid {
+  align-items: start; /* Картки не будуть розтягуватися на всю висоту ряду */
+}
+
+.profile-mini-card {
+  height: max-content; /* Картка буде рівно такої висоти, скільки в ній контенту */
+}
+

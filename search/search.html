@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonmate — Знайти пару</title>
+    
+    <!-- Шрифти -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Стилі -->
+    <link rel="stylesheet" href="../main/css/reset.css">
+    <link rel="stylesheet" href="../main/css/base.css">
+    <link rel="stylesheet" href="../main/css/header.css">
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="../main/css/media.css">
+    <link rel="stylesheet" href="../main/css/footer.css">
+</head>
+<body>
+
+    <!-- ================= ШАПКА (HEADER) ================= -->
+    <header class="header">
+        <div class="header-container">
+            <a href="../main/main.html" class="logo">
+                <img src="../main/img/Group 22.png" alt="Moonmate">
+            </a>
+
+            <nav class="nav-menu" id="mobile-menu">
+                <a href="../main/main.html" class="nav-link">Головна</a>
+                <a href="search.html" class="nav-link active">Знайти пару</a>
+                <a href="../profile/profile.html" class="nav-link">Профіль</a>
+                <a href="../main/main.html#about" class="nav-link">Про нас</a>
+            </nav>
+
+            <div class="header-buttons">
+                <button class="btn btn-login">Увійти</button>
+                <button class="btn btn-register">Зареєструватися</button>
+            </div>
+
+            <button class="menu-toggle" id="menu-btn" aria-label="Відкрити меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= ОСНОВНИЙ КОНТЕНТ ================= -->
+    <main class="search-page">
+        
+        <!-- БЛОК 1: ІДЕАЛЬНИЙ ВОВК -->
+        <section class="search-hero">
+            <h1 class="search-title">Твій <span class="pink-text">ІДЕАЛЬНИЙ ВОВК</span></h1>
+            <p class="search-subtitle">МОЖЕ БУТИ БЛИЖЧЕ, НІЖ ТИ ДУМАЄШ...</p>
+
+            <div class="features-row">
+                <div class="feature-item">
+                    <div class="feature-icon-circle">
+                        <img src="../main/img/image 35.png" alt="Інтереси">
+                    </div>
+                    <h3>ІНТЕРЕСИ</h3>
+                    <p>Спільні захоплення надихають</p>
+                </div>
+                <div class="feature-center-icon">
+                    <img src="../main/img/Group 97.png" alt="Лотос">
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-circle">
+                        <img src="../main/img/image 34.png" alt="Цінності">
+                    </div>
+                    <h3>ЦІННОСТІ</h3>
+                    <p>Схожі погляди на життя</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-circle">
+                        <img src="../main/img/image 33.png" alt="Спосіб життя">
+                    </div>
+                    <h3>СПОСІБ ЖИТТЯ</h3>
+                    <p>Однакова енергія і ритм</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- КНОПКА ПОСЕРЕДИНІ -->
+        <div class="main-cta-wrapper">
+            <button class="btn btn-register btn-large" id="btnToggleFilters">Налаштуй свій пошук</button>
+        </div>
+
+        <!-- БЛОК 2: ПАНЕЛЬ ФІЛЬТРІВ -->
+        <section class="filters-section hidden" id="filtersPanel">
+          <div class="filters-header">
+              <img src="../main/img/image 54.png" alt="Лотос" class="lotus-small">
+              <h2>Налаштуй свій пошук</h2>
+              <img src="../main/img/image 54.png" alt="Лотос" class="lotus-small">
+          </div>
+
+          <div class="filters-grid">
+              <!-- Вік -->
+              <div class="filter-group">
+                  <label class="filter-label">
+                      <span class="icon-user">👤</span> Вік
+                  </label>
+                  <div class="range-wrapper">
+                      <span class="range-val">18</span>
+                      <input type="range" min="18" max="99" value="99" class="slider" id="ageSlider">
+                      <span class="range-val">99</span>
+                  </div>
+                  <span class="distance-text" id="ageValue">Вік: 18 - 99</span>
+              </div>
+
+              <!-- Відстань -->
+              <div class="filter-group">
+                  <label class="filter-label">
+                      <img src="../main/img/moon.png" class="moon-icon" alt=""> Максимальна відстань
+                  </label>
+                  <div class="range-wrapper">
+                      <span class="range-val">0</span>
+                      <input type="range" min="0" max="100" value="57" class="slider" id="distSlider">
+                      <span class="range-val">99+</span>
+                  </div>
+                  <span class="distance-text" id="distValue">57 км</span>
+              </div>
+
+              <!-- Фаза місяця -->
+              <div class="filter-group">
+                  <label class="filter-label">
+                      <img src="../main/img/moon.png" class="moon-icon" alt=""> Фаза місяця
+                  </label>
+                  <div class="moon-buttons" id="moonFilter">
+                      <button class="moon-btn active" data-moon="Повня">Повня</button>
+                      <button class="moon-btn" data-moon="Молодий">Молодий</button>
+                      <button class="moon-btn" data-moon="Квартал">Квартал</button>
+                  </div>
+              </div>
+          </div>
+
+          <div class="filters-actions">
+            <button class="btn btn-outline btn-large" id="btnResetFilters">Скинути</button>
+            <button class="btn btn-register btn-large" id="btnApplyFilters">Застосувати</button>
+        </div>
+          <img src="../main/img/image 53.png" alt="" class="filters-lotus-left">
+          <img src="../main/img/image 53.png" alt="" class="filters-lotus-right">
+      </section>
+
+        <!-- БЛОК 3: СІТКА КАРТОК -->
+        <section class="cards-section">
+            <div class="profiles-grid" id="profilesGrid">
+                
+                <!-- Картка 1 (Макс) -->
+                <div class="profile-mini-card" data-age="21" data-moon="Повня">
+                    <div class="mini-avatar"><img src="../main/img/Rectangle 46.png" alt="Макс"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Макс, 21</h3>
+                            <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Київ</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 99% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Повня</p>
+                        <div class="mini-tags"><span>Подорожі</span><span>Музика</span><span>Книги</span></div>
+                    </div>
+                </div>
+
+                <!-- Картка 2 (Амрит) -->
+                <div class="profile-mini-card" data-age="24" data-moon="Молодий">
+                    <div class="mini-avatar"><img src="../main/img/image 64.png" alt="Амрит"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Амрит, 24</h3>
+                            <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Харків</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 88% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Молодий</p>
+                        <div class="mini-tags"><span>Спорт</span><span>Музика</span><span>Кіно</span></div>
+                    </div>
+                </div>
+
+                <!-- Картка 3 (Френсіс) -->
+                <div class="profile-mini-card" data-age="20" data-moon="Квартал">
+                    <div class="mini-avatar"><img src="../main/img/image 91.png" alt="Френсіс"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Френсіс, 20</h3>
+                            <img src="../main/img/Group 41.png" alt="Жінка" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Київ</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 90% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Квартал</p>
+                        <div class="mini-tags"><span>Кіно</span><span>Подорожі</span><span>IT</span></div>
+                    </div>
+                </div>
+
+                <!-- Картка 4 (Лірен) -->
+                <div class="profile-mini-card" data-age="25" data-moon="Повня">
+                    <div class="mini-avatar"><img src="../main/img/image 92.png" alt="Лірен"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Лірен, 25</h3>
+                            <img src="../main/img/Group 41.png" alt="Жінка" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Прага</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 92% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Повня</p>
+                        <div class="mini-tags"><span>Музика</span><span>Йога</span><span>Подорожі</span></div>
+                    </div>
+                </div>
+
+                <!-- Картка 5 (Евтида) -->
+                <div class="profile-mini-card" data-age="19" data-moon="Повня">
+                    <div class="mini-avatar"><img src="../main/img/image 94.png" alt="Евтида"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Евтида, 19</h3>
+                            <img src="../main/img/Group 41.png" alt="Жінка" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Львів</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 70% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Повня</p>
+                        <div class="mini-tags"><span>Музика</span><span>Кулінарія</span><span>Подорожі</span></div>
+                    </div>
+                </div>
+
+                <!-- Картка 6 (Сайлен) -->
+                <div class="profile-mini-card" data-age="20" data-moon="Молодий">
+                    <div class="mini-avatar"><img src="../main/img/image 95.png" alt="Сайлен"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Сайлен, 20</h3>
+                            <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Прага</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 87% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Молодий</p>
+                        <div class="mini-tags"><span>Технології</span><span>Спільнота</span><span>Кіно</span></div>
+                    </div>
+                </div>
+
+                <!-- Картка 7 (Віктор) -->
+                <div class="profile-mini-card" data-age="29" data-moon="Повня">
+                    <div class="mini-avatar"><img src="../main/img/image 60.png" alt="Віктор"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Віктор, 29</h3>
+                            <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Київ</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 99% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Повня</p>
+                        <div class="mini-tags"><span>Книги</span><span>Природа</span><span>Музика</span></div>
+                    </div>
+                </div>
+
+                <!-- Картка 8 (Амен) -->
+                <div class="profile-mini-card" data-age="28" data-moon="Молодий">
+                    <div class="mini-avatar"><img src="../main/img/image 65.png" alt="Амен"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Амен, 28</h3>
+                            <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Тернопіль</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 89% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Молодий</p>
+                        <div class="mini-tags"><span>Спорт</span><span>Подорожі</span><span>Кіно</span></div>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- ДРУГА СТОРІНКА АНКЕТ (Спочатку приховані)    -->
+                <!-- ========================================== -->
+                <div class="profile-mini-card page-2" data-age="27" data-moon="Квартал">
+                    <div class="mini-avatar"><img src="../main/img/деклан.webp" alt="Деклан"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Деклан, 27</h3>
+                            <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Одеса</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 85% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Квартал</p>
+                        <div class="mini-tags"><span>Риболовля</span><span>Авто</span><span>Кіно</span></div>
+                    </div>
+                </div>
+
+                <div class="profile-mini-card page-2" data-age="22" data-moon="Повня">
+                    <div class="mini-avatar"><img src="../main/img/Mimi_1.webp" alt="Мімі"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Мімі, 22</h3>
+                            <img src="../main/img/Group 41.png" alt="Жінка" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Київ</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 95% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Повня</p>
+                        <div class="mini-tags"><span>Танці</span><span>Фотографія</span><span>Подорожі</span></div>
+                    </div>
+                </div>
+
+                <div class="profile-mini-card page-2" data-age="30" data-moon="Молодий">
+                    <div class="mini-avatar"><img src="../main/img/каін.webp" alt="Каін"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Каін, 30</h3>
+                            <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Львів</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 78% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Молодий</p>
+                        <div class="mini-tags"><span>Історія</span><span>Кава</span><span>Настільні ігри</span></div>
+                    </div>
+                </div>
+
+                <div class="profile-mini-card page-2" data-age="24" data-moon="Повня">
+                    <div class="mini-avatar"><img src="../main/img/дмитро.webp" alt="Дмитро"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Дмитро, 24</h3>
+                            <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Вінниця</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 91% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Повня</p>
+                        <div class="mini-tags"><span>Йога</span><span>Книги</span><span>Природа</span></div>
+                    </div>
+                </div>
+
+                <div class="profile-mini-card page-2" data-age="26" data-moon="Квартал">
+                    <div class="mini-avatar"><img src="../main/img/ліма.webp" alt="Ліма"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Ліма, 26</h3>
+                            <img src="../main/img/Group 41.png" alt="Жінка" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Дніпро</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 82% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Квартал</p>
+                        <div class="mini-tags"><span>Спорт</span><span>Бокс</span><span>Музика</span></div>
+                    </div>
+                </div>
+
+                <div class="profile-mini-card page-2" data-age="21" data-moon="Молодий">
+                    <div class="mini-avatar"><img src="../main/img/декс.webp" alt="Декс"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Декс, 21</h3>
+                            <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Харків</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 97% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Молодий</p>
+                        <div class="mini-tags"><span>Малювання</span><span>Аніме</span><span>Ігри</span></div>
+                    </div>
+                </div>
+
+                <div class="profile-mini-card page-2" data-age="23" data-moon="Повня">
+                    <div class="mini-avatar"><img src="../main/img/ренато.webp" alt="Ренато"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Ренато, 23</h3>
+                            <img src="../main/img/Group 42.png" alt="Чоловік" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Київ</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 80% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Повня</p>
+                        <div class="mini-tags"><span>Програмування</span><span>Кіно</span><span>Велосипед</span></div>
+                    </div>
+                </div>
+
+                <div class="profile-mini-card page-2" data-age="25" data-moon="Квартал">
+                    <div class="mini-avatar"><img src="../main/img/стефані.jfif" alt="Стефані"></div>
+                    <div class="mini-info">
+                        <div class="mini-header">
+                            <h3>Стефані, 25</h3>
+                            <img src="../main/img/Group 41.png" alt="Жінка" class="gender-icon">
+                            <img src="../main/img/image 74.png" alt="Лайк" class="like-icon">
+                        </div>
+                        <p class="mini-detail"><img src="../main/img/Group 40.png" class="detail-icon"> Одеса</p>
+                        <p class="mini-detail"><img src="../main/img/image 54.png" class="detail-icon"> 93% сумісність</p>
+                        <p class="mini-detail"><img src="../main/img/moon.png" class="detail-icon"> Фаза місяця: Квартал</p>
+                        <div class="mini-tags"><span>Психологія</span><span>Подорожі</span><span>Кава</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- КНОПКИ НАВІГАЦІЇ -->
+        <div class="pagination-actions">
+            <button class="btn btn-register" id="btnPrevPage">Попередня</button>
+            <button class="btn btn-register" id="btnNextPage">Наступна</button>
+        </div>
+
+    </main>
+
+     <!-- ================= ПІДВАЛ (FOOTER) ================= -->
+     <footer class="footer" id="about">
+      <div class="footer-container">
+          <a href="#" class="footer-logo">
+              <img src="../main/img/Group 22.png" alt="Moonmate">
+          </a>
+          <div class="footer-info">
+              <strong>Контактна інформація</strong>
+              <p>Виконали студенти групи АНД-31 факультету ФІТ</p>
+              <p>Київського національного університету ім. Т. Шевченка</p>
+              <div class="footer-contacts">
+                  <p>Крилова А. І.<br>kruhlova@knu.ua</p>
+                  <p>Ткачук С. О.<br>sofiia.tkachuk@knu.ua</p>
+              </div>
+          </div>
+      </div>
+      <img src="../main/img/image 26.png" alt="Архітектура" class="footer-arch-img">
+  </footer>
+
+    <script src="../main/script.js"></script>
+</body>
+</html>

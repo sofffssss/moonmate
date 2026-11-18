@@ -1,0 +1,51 @@
+/* =========================================
+   BASE.CSS - Базові змінні та налаштування
+   ========================================= */
+   :root {
+    --bg-dark:  #6B3061;
+    --bg-features: #2e0a30;
+    --accent-pink: #ff00a0;
+    --text-white: #ffffff;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* Спільні кнопки (щоб не дублювати в хедері та контенті) */
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 10px 28px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-register {
+    background-color: var(--accent-pink);
+    color: var(--text-white);
+    border: 2px solid var(--accent-pink);
+}
+
+.btn-register:hover {
+    background-color: #e6008f;
+    border-color: #e6008f;
+}
+
+.btn-large {
+    padding: 14px 40px;
+    font-size: 16px;
+}
+
+.pink-text {
+    color: var(--accent-pink);
+    font-weight: 700;
+}
